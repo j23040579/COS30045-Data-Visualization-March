@@ -38,9 +38,6 @@ Your forked repository : "github.com/yourusername/COS30045-Data-Visualization/en
 
 Clone your forked repository to your local machine using **VS Code** or the terminal.
 
-Example:
-
-git clone https://github.com/yourusername/energy-webpage.git
 
 
 # Step 3 – Project Structure
