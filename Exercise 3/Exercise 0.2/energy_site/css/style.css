@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #281c59;
+  color: #edf7bd;
+}
+
+/* HEADER */
+
+header {
+  display: flex;
+  align-items: center;
+  background: #4e8d9c;
+  padding: 10px 20px;
+}
+
+.logo img {
+  width: 50px; /* adjust size as needed */
+  height: 50px; /* keep width and height equal for a perfect circle */
+  object-fit: cover; /* ensures image covers area nicely */
+  cursor: pointer;
+  border-radius: 60%;
+}
+
+/* NAVIGATION */
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin-left: 20px;
+  padding: 0;
+}
+
+nav li {
+  margin-right: 20px;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* mouse hover feedback */
+
+nav li:hover {
+  background: #d2c4b4;
+  color: black;
+}
+
+/* active page indicator */
+
+.active {
+  background: #85c79a;
+  color: #281c59;
+}
+
+/* PAGES */
+
+main {
+  padding: 30px;
+}
