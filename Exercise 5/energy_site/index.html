@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Energy Smart Appliances</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/charts.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo" onclick="goHome()">
+        <img src="images/Logo.png" alt="Power Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li onclick="goHome()" class="active1">Home</li>
+          <li onclick="goTV()">Televisions</li>
+          <li onclick="goAbout()">About Us</li>
+          <li onclick="goStoryBoard()">Story Board</li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="page active">
+        <h1>Energy Efficient Appliances</h1>
+        <p>
+          Australian households are increasingly focusing on reducing
+          electricity consumption. Choosing appliances with high energy ratings
+          can significantly lower household power bills.
+        </p>
+        <p>
+          Energy rating labels used in Australia help consumers compare the
+          efficiency of different appliances. More stars generally indicate
+          better efficiency.
+        </p>
+      </section>
+
+      <section id="tv" class="page">
+        <h1>Television Energy Consumption</h1>
+        <p>
+          Modern televisions use far less energy than older models. LED and OLED
+          displays are typically more energy efficient than older plasma or LCD
+          screens.
+        </p>
+        <p>
+          In Australia, televisions are required to display an energy rating
+          label. This label estimates annual electricity consumption based on
+          typical household usage.
+        </p>
+        <p>
+          Selecting a TV with a higher energy rating can reduce both energy
+          costs and environmental impact.
+        </p>
+      </section>
+
+      <section id="about" class="page">
+        <h1>About This Website</h1>
+        <p>
+          This website provides simple educational information about energy
+          consumption of household appliances in Australia.
+        </p>
+        <p>
+          Understanding energy efficiency helps households make better
+          purchasing decisions and reduce electricity use.
+        </p>
+      </section>
+
+      <!-- ── D3 Chart Dashboard ─────────────────────────────────────── -->
+      <div class="chart-dashboard">
+        <!-- Dashboard header -->
+        <div class="dashboard-header">
+          <div class="dashboard-title-group">
+            <span class="dashboard-eyebrow">Multi-chart section</span>
+            <h2 class="dashboard-title">TV Energy Data Explorer</h2>
+          </div>
+          <div class="dashboard-meta">
+            <span class="meta-badge">2,759 models</span>
+            <span class="meta-badge">AU 2024</span>
+          </div>
+        </div>
+
+        <!-- Existing chart (Screen Technology Bar Chart) -->
+        <div class="chart-row chart-row--full">
+          <div class="chart-panel" id="panel-screen-tech">
+            <div class="chart-panel__header">
+              <div>
+                <p class="chart-panel__label">Screen Technology</p>
+              </div>
+              <div class="chart-panel__badge">Bar</div>
+            </div>
+            <div class="responsive-svg-containter" id="chart-screen-tech"></div>
+          </div>
+        </div>
+
+        <!-- Row: 2 charts side by side -->
+        <div class="chart-row chart-row--half">
+          <div class="chart-panel" id="panel-chart-2">
+            <div class="chart-panel__header">
+              <div>
+                <p class="chart-panel__label">
+                  Energy Consumption by Screen Type
+                </p>
+              </div>
+              <div class="chart-panel__badge">Donut</div>
+            </div>
+            <div class="chart-placeholder">
+              <div class="placeholder-inner">
+                <div id="chart2-donut"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-panel" id="panel-chart-3">
+            <div class="chart-panel__header">
+              <div>
+                <p class="chart-panel__label">
+                  Energy Consumption vs Star Rating
+                </p>
+              </div>
+              <div class="chart-panel__badge">Scatter</div>
+            </div>
+            <div class="chart-placeholder">
+              <div class="placeholder-inner">
+                <div id="chart1-scatter"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row: 2 more charts side by side -->
+        <div class="chart-row chart-row--half">
+          <div class="chart-panel" id="panel-chart-4">
+            <div class="chart-panel__header">
+              <div>
+                <p class="chart-panel__label">Chart Title 4</p>
+              </div>
+              <div class="chart-panel__badge">Line</div>
+            </div>
+            <div class="chart-placeholder">
+              <div class="placeholder-inner">
+                <div id="chart4-line"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-panel" id="panel-chart-5">
+            <div class="chart-panel__header">
+              <div>
+                <p class="chart-panel__label">
+                  Energy Consumption by Screen Type — 55 TVs
+                </p>
+              </div>
+              <div class="chart-panel__badge">Bar</div>
+            </div>
+            <div class="chart-placeholder">
+              <div class="placeholder-inner">
+                <div id="chart3-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ── End Chart Dashboard ────────────────────────────────────── -->
+    </main>
+
+    <!-- Shared tooltip (used by all D3 charts) -->
+    <div class="chart-tooltip" id="chart-tooltip"></div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/d3.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/chart1_scatter.js"></script>
+    <script src="js/chart2_donut.js"></script>
+    <script src="js/chart3_bar.js"></script>
+    <script src="js/chart4_line.js"></script>
+  </body>
+</html>

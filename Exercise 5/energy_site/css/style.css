@@ -1,0 +1,411 @@
+/* ==========================================================================
+   style.css — Site-wide styles for Energy Smart Appliances
+   ========================================================================== */
+
+/* ── Google Fonts fallback stack ─────────────────────────────────────────── */
+@import url("https:// s.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;600&display=swap");
+
+/* ── GLOBAL ──────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "IBM Plex Sans", Arial, sans-serif;
+  margin: 0;
+  background: #1a1530;
+  color: #edf7bd;
+}
+
+/* ── HEADER ──────────────────────────────────────────────────────────────── */
+header {
+  display: flex;
+  align-items: center;
+  background: #281c59;
+  padding: 12px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* ── NAVIGATION ──────────────────────────────────────────────────────────── */
+nav ul {
+  list-style: none;
+  display: flex;
+  margin-left: 24px;
+  padding: 0;
+  gap: 4px;
+}
+
+nav li {
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #a0aec0;
+  transition:
+    background 0.18s,
+    color 0.18s;
+}
+
+nav li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #edf7bd;
+}
+
+.active1 {
+  background: #85c79a;
+  color: #1a1530;
+  font-weight: 700;
+}
+
+/* ── MAIN ────────────────────────────────────────────────────────────────── */
+main {
+  padding: 32px 36px 64px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── TEXT SECTIONS (home / tv / about) ───────────────────────────────────── */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.page h1 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #edf7bd;
+  margin-bottom: 16px;
+}
+
+.page p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #a0aec0;
+  max-width: 680px;
+  margin-bottom: 12px;
+}
+
+/* ── CHART DASHBOARD ─────────────────────────────────────────────────────── */
+.chart-dashboard {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Dashboard header */
+.dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dashboard-eyebrow {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #85c79a;
+  margin-bottom: 6px;
+}
+
+.dashboard-title {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #f0f4ff;
+  margin: 0;
+}
+
+.dashboard-meta {
+  display: flex;
+  gap: 8px;
+}
+
+.meta-badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(133, 199, 154, 0.12);
+  color: #85c79a;
+  border: 1px solid rgba(133, 199, 154, 0.25);
+}
+
+/* Chart rows */
+.chart-row {
+  display: flex;
+  gap: 20px;
+}
+
+.chart-row--full {
+  flex-direction: column;
+}
+
+.chart-row--half {
+  flex-direction: row;
+}
+
+.chart-row--half .chart-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── CHART PANEL ─────────────────────────────────────────────────────────── */
+.chart-panel {
+  background: #0f1117;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 20px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.2s;
+}
+
+.chart-panel:hover {
+  border-color: rgba(133, 199, 154, 0.25);
+}
+
+/* Panel header */
+.chart-panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.chart-panel__label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f0f4ff;
+  margin: 0 0 4px;
+}
+
+.chart-panel__sub {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  color: #718096;
+  margin: 0;
+}
+
+.chart-panel__badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(78, 141, 156, 0.18);
+  color: #4e8d9c;
+  border: 1px solid rgba(78, 141, 156, 0.3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── D3 CHART CONTAINER (existing + new charts) ──────────────────────────── */
+.responsive-svg-containter {
+  width: 100%;
+  background: transparent;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* ── PLACEHOLDER (empty chart slots) ─────────────────────────────────────── */
+.chart-placeholder {
+  width: 100%;
+  min-height: 760px;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: rgba(255, 255, 255, 0.18);
+}
+
+.placeholder-icon {
+  width: 48px;
+  height: 48px;
+  color: rgba(133, 199, 154, 0.3);
+}
+
+.placeholder-inner span {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── STORYBOARD CONTAINER ────────────────────────────────────────────────── */
+.container {
+  width: fit-content;
+  margin: auto;
+  padding: 40px 50px;
+  background-color: #4e8d9c;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 8px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 60px 0;
+}
+
+.right {
+  justify-content: right;
+  gap: 50px;
+}
+
+.text {
+  font-size: 18px;
+  max-width: 500px;
+}
+
+.main-text {
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.solution-title {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+/* ── NOTE BOXES ──────────────────────────────────────────────────────────── */
+.box {
+  background-color: #f2d78c;
+  color: #333;
+  padding: 15px;
+  width: 200px;
+  font-size: 14px;
+}
+
+.left {
+  align-self: flex-start;
+}
+
+.right2 {
+  align-self: flex-end;
+}
+
+/* ── STORYBOARD IMAGES ───────────────────────────────────────────────────── */
+.image {
+  border-radius: 8px;
+  max-width: 500px;
+  height: auto;
+}
+
+.image2 {
+  border-radius: 8px;
+  max-width: 500px;
+  height: 150px;
+}
+
+.image:hover {
+  box-shadow: 0 0 50px 1px rgba(255, 208, 0, 0.812);
+}
+.image2:hover {
+  box-shadow: 0 0 50px 1px rgba(255, 208, 0, 0.812);
+}
+
+/* ── PAGE TOGGLE (storyboard) ────────────────────────────────────────────── */
+.page-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  background: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  border-color: #f5a623;
+}
+
+.toggle-btn.active {
+  background: #f5a623;
+  border-color: #f5a623;
+  color: white;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  main {
+    padding: 20px 16px 48px;
+  }
+
+  .chart-row--half {
+    flex-direction: column;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+#chart1-scatter {
+  width: 100%;
+  min-height: 700px;
+}

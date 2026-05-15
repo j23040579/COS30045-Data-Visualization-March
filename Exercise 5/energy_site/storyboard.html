@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Story Board - Energy Smart Appliances</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo" onclick="goHome()">
+        <img src="images/Logo.png" alt="Power Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li onclick="goHome()">Home</li>
+          <li onclick="goTV()">Televisions</li>
+          <li onclick="goAbout()">About Us</li>
+          <li onclick="goStoryBoard()" class="active1">Story Board</li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="page-toggle">
+      <button class="toggle-btn active" data-page="1">1</button>
+      <button class="toggle-btn" data-page="2">2</button>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div class="container page active" id="page1">
+      <div class="row">
+        <div class="box left" style="align-self: center">
+          <p><strong>Issue :</strong> Energy Consumption used from TV</p>
+        </div>
+        <div class="text main-text" style="margin-left: 50px">
+          Televisions are one of the most commonly used electronic devices in
+          households, and their energy consumption contributes significantly to
+          overall electricity usage.
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="text">
+          <a target="_blank" href="./images/Barchart.png">
+            <img class="image" src="./images/Barchart.png" alt="bar chart" />
+          </a>
+        </div>
+        <div class="box right" style="align-self: center">
+          <p>
+            <strong>Issue demonstration :</strong><br />
+            Show relationship between screen size and average mod power from the TVs
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="box left">
+          <p>TV size recommendations for lesser energy consumption</p>
+        </div>
+        <div class="text center-text">
+          Smaller TV size suggestions for lower energy consumption
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="text">
+          High star large TV have also proven to consume less energy. By
+          suggesting that it can also reduce the issue
+        </div>
+        <div class="box right">
+          <p>Describe the recommendation of only high-star large TVs</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="box left">
+          <p>Compare power use before vs after recommendation</p>
+        </div>
+        <div class="text center-text">Compare before vs after from survey</div>
+      </div>
+
+      <div class="row right">
+        <div class="text solution-title">SOLUTION</div>
+        <div class="box right">
+          <p>
+            <strong>SOLUTION:</strong><br />
+            Promote energy-efficient large TVs or limit size recommendations
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="container page" id="page2">
+      <div class="row">
+        <div class="box left" style="align-self: center">
+          <p>
+            <strong>Issue :</strong> Screen Size Availability and Frequency
+            (56–65 inches most common)
+          </p>
+        </div>
+        <div class="text main-text" style="margin-left: 50px">
+          Televisions come in a wide range of screen sizes, but certain size
+          groups are more commonly purchased and used. Based on the findings,
+          TVs in the 56–65 inch range are the most frequent, indicating a strong
+          consumer preference for medium-to-large displays.
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="text">
+          <a target="_blank" href="./images/Bar Chart2.png">
+            <img class="image2" src="./images/Bar Chart2.png" alt="bar chart" />
+          </a>
+        </div>
+        <div class="box right" style="align-self: center">
+          <p>
+            <strong>Issue demonstration :</strong><br />
+            Show relationship between screen size and Count model no. from the TVs
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="box left">
+          <p>TV Size Recommendations for Better Balance</p>
+        </div>
+        <div class="text center-text">
+          Suggest choosing screen sizes based on room size and viewing distance
+          rather than defaulting to larger TVs. While 56–65 inches is popular,
+          smaller sizes may be more suitable and efficient for compact spaces.
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="text">
+          Since 56–65 inch TVs are the most common, recommend selecting models
+          within this range that are optimized for efficiency and viewing
+          quality, rather than simply going larger.
+        </div>
+        <div class="box right">
+          <p>Describe Recommendation of Optimal Popular Sizes</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="box left">
+          <p>Compare Distribution Before vs After Recommendation</p>
+        </div>
+        <div class="text center-text">
+          Compare the current frequency (where 56–65 inches dominates) with a
+          more balanced distribution after encouraging size-appropriate choices
+          (e.g., increased adoption of smaller sizes where suitable).
+        </div>
+      </div>
+
+      <div class="row right">
+        <div class="text solution-title">SOLUTION</div>
+        <div class="box right">
+          <p>
+            <strong>SOLUTION:</strong><br />
+            Encourage consumers to choose appropriately sized TVs (especially
+            within the 56–65 inch range) based on their needs, while avoiding
+            unnecessarily large screens that may not provide additional value.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,271 @@
+/* ==========================================================================
+   charts.css — Shared styles for all four D3 charts
+   Import once in <head>; applies to scatter, donut, bar, and line charts.
+   ========================================================================== */
+
+/* ── Design tokens ────────────────────────────────────────────────────────── */
+:root {
+  /* Background of the SVG canvas (used for stroke gaps in donut, dots) */
+  --chart-bg: #0f1117;
+
+  /* Grid & axis chrome */
+  --grid-stroke: rgba(255, 255, 255, 0.06);
+  --axis-stroke: rgba(255, 255, 255, 0.22);
+  --axis-text: #a0aec0;
+  --axis-label-text: #cbd5e0;
+
+  /* Chart titles */
+  --chart-title-fill: #f0f4ff;
+  --chart-title-size: 15px;
+  --chart-title-weight: 700;
+  --chart-title-font: "IBM Plex Mono", "Courier New", monospace;
+
+  /* Labels / values */
+  --bar-value-fill: #e2e8f0;
+  --donut-label-fill: #e2e8f0;
+  --donut-pct-fill: #ffffff;
+  --donut-centre-fill: #f0f4ff;
+  --donut-sub-fill: #718096;
+
+  /* Legend */
+  --legend-title-fill: #94a3b8;
+  --legend-label-fill: #cbd5e0;
+  --legend-stroke: rgba(255, 255, 255, 0.35);
+
+  /* Tooltip */
+  --tt-bg: rgba(15, 17, 23, 0.96);
+  --tt-border: rgba(255, 255, 255, 0.12);
+  --tt-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+  --tt-text: #e2e8f0;
+  --tt-label-color: #f0f4ff;
+  --tt-accent: #4cc9f0;
+
+  /* Crosshair (line chart) */
+  --crosshair-stroke: rgba(255, 255, 255, 0.18);
+}
+
+/* ── SVG base ─────────────────────────────────────────────────────────────── */
+.chart-svg {
+  display: block;
+  overflow: visible;
+  background: transparent;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+}
+
+/* ── Grid lines ───────────────────────────────────────────────────────────── */
+.grid line {
+  stroke: var(--grid-stroke);
+  stroke-dasharray: 3 4;
+  shape-rendering: crispEdges;
+}
+
+.grid path,
+.grid .domain {
+  display: none;
+}
+
+/* ── Axes ─────────────────────────────────────────────────────────────────── */
+.axis .domain {
+  stroke: var(--axis-stroke);
+}
+
+.axis line {
+  stroke: var(--axis-stroke);
+}
+
+.axis text {
+  fill: var(--axis-text);
+  font-size: 11px;
+}
+
+/* ── Axis labels ──────────────────────────────────────────────────────────── */
+.axis-label {
+  fill: var(--axis-label-text);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* ── Chart title ──────────────────────────────────────────────────────────── */
+.chart-title {
+  fill: var(--chart-title-fill);
+  --chart-title-size: 15px;
+  font-size: var(--chart-title-size);
+  font-weight: var(--chart-title-weight);
+  font-family: var(--chart-title-font);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Legend ───────────────────────────────────────────────────────────────── */
+.legend-title {
+  fill: var(--legend-title-fill);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.legend-label {
+  fill: var(--legend-label-fill);
+  font-size: 11.5px;
+}
+
+/* ── Scatter plot ─────────────────────────────────────────────────────────── */
+.scatter-svg .dot {
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+
+.scatter-svg .dot:hover {
+  filter: brightness(1.25) drop-shadow(0 0 6px currentColor);
+}
+
+/* ── Donut chart ──────────────────────────────────────────────────────────── */
+.donut-svg .arc path {
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+
+.donut-svg .arc path:hover {
+  filter: brightness(1.2) drop-shadow(0 0 10px currentColor);
+}
+
+.donut-pct {
+  fill: var(--donut-pct-fill);
+  font-size: 12px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.donut-label {
+  fill: var(--donut-label-fill);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.donut-polyline {
+  stroke-dasharray: 2 2;
+  opacity: 0.6;
+}
+
+.donut-centre-label {
+  fill: var(--legend-title-fill);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.donut-centre-value {
+  fill: var(--chart-title-fill);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.donut-centre-sub {
+  fill: var(--donut-sub-fill);
+  font-size: 11px;
+}
+
+/* ── Bar chart ────────────────────────────────────────────────────────────── */
+.bar-svg .bar {
+  cursor: pointer;
+  transition: filter 0.12s;
+}
+
+.bar-svg .bar:hover {
+  filter: brightness(1.18) drop-shadow(0 0 8px currentColor);
+}
+
+.bar-value {
+  fill: var(--bar-value-fill);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ── Line chart ───────────────────────────────────────────────────────────── */
+.line-svg .line-path {
+  transition:
+    stroke-width 0.15s,
+    filter 0.15s;
+}
+
+.line-svg .line-path:hover {
+  stroke-width: 3.5px;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+/* Crosshair vertical rule */
+.crosshair {
+  stroke: var(--crosshair-stroke);
+  stroke-width: 1px;
+  stroke-dasharray: 4 3;
+  pointer-events: none;
+}
+
+/* ── Shared tooltip ───────────────────────────────────────────────────────── */
+.chart-tooltip {
+  position: fixed;
+  display: none;
+  pointer-events: none;
+  z-index: 9999;
+
+  background: var(--tt-bg);
+  border: 1px solid var(--tt-border);
+  border-radius: 8px;
+  box-shadow: var(--tt-shadow);
+
+  padding: 10px 14px;
+  min-width: 160px;
+  max-width: 240px;
+
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 12px;
+  color: var(--tt-text);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.chart-tooltip .tt-label {
+  display: block;
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--tt-label-color);
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--tt-border);
+  padding-bottom: 5px;
+}
+
+.chart-tooltip .tt-tech {
+  display: block;
+  font-size: 10.5px;
+  color: var(--tt-accent);
+  margin-top: -3px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.chart-tooltip .tt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.chart-tooltip .tt-row span {
+  color: var(--axis-text);
+  font-size: 11px;
+}
+
+.chart-tooltip .tt-row strong {
+  color: var(--tt-label-color);
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+}
